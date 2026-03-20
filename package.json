@@ -1,0 +1,13 @@
+{
+  "name": "vm-clientes-storage-firebase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "functions:build": "echo 'Netlify bundles functions on deploy'"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.5.0"
+  }
+}
