@@ -1,4 +1,5 @@
 import { getDb } from '../../lib/firebase-admin.mjs';
+import { notifyClientSubmission } from '../../lib/client-notifications.mjs';
 
 const ALLOWED_ORIGINS = new Set([
   'https://www.vmarquitetos.com'
@@ -132,6 +133,19 @@ export default async (request, context) => {
 
   const db = getDb();
   const docRef = await db.collection('client_submissions').add(payload);
+  const notificationTask = notifyClientSubmission({
+    db,
+    submissionId: docRef.id,
+    payload
+  }).catch((error) => {
+    console.error('client notification failed', error);
+  });
+
+  if (typeof context.waitUntil === 'function') {
+    context.waitUntil(notificationTask);
+  } else {
+    await notificationTask;
+  }
 
   return json(
     {
