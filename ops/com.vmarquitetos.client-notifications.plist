@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.vmarquitetos.client-notifications</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/avas/.nvm/versions/node/v20.20.1/bin/node</string>
+      <string>/Users/avas/Documents/CODEX[VM][BACKEND]-vm-clientes-storage-firebase/scripts/process-client-notifications.mjs</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/avas/Documents/CODEX[VM][BACKEND]-vm-clientes-storage-firebase</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>FIREBASE_SERVICE_ACCOUNT_PATH</key>
+      <string>/Users/avas/Downloads/10_Credenciais_Acessos/vm-cadastro-clientes-firebase-adminsdk-fbsvc-526e2e6318.json</string>
+      <key>NOTIFICATION_RECIPIENTS</key>
+      <string>asilva@vmarquitetos.com,financeiro@vmarquitetos.com,vmazoni@vmarquitetos.com</string>
+      <key>MAIL_ACCOUNT_NAME</key>
+      <string>VM</string>
+      <key>MAIL_SENDER_ADDRESS</key>
+      <string>asilva@vmarquitetos.com</string>
+      <key>NOTIFICATION_SCAN_LIMIT</key>
+      <string>25</string>
+      <key>NOTIFICATION_LOCK_TIMEOUT_MS</key>
+      <string>600000</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>60</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/avas/Library/Logs/com.vmarquitetos.client-notifications.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/avas/Library/Logs/com.vmarquitetos.client-notifications.err.log</string>
+  </dict>
+</plist>
