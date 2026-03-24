@@ -13,7 +13,7 @@ const DEFAULT_RECIPIENTS = [
 const MAX_SCAN = Number(process.env.NOTIFICATION_SCAN_LIMIT || 25);
 const LOCK_TIMEOUT_MS = Number(process.env.NOTIFICATION_LOCK_TIMEOUT_MS || 10 * 60 * 1000);
 const MAIL_ACCOUNT_NAME = String(process.env.MAIL_ACCOUNT_NAME || 'VM').trim();
-const MAIL_SENDER_ADDRESS = String(process.env.MAIL_SENDER_ADDRESS || 'asilva@vmarquitetos.com').trim();
+const MAIL_SENDER_ADDRESS = String(process.env.MAIL_SENDER_ADDRESS || 'forms@vmarquitetos.com').trim();
 const MAIL_SCRIPT_PATH = String(
   process.env.MAIL_APP_SCRIPT_PATH ||
     '/Users/avas/Documents/CODEX[VM][BACKEND]-vm-clientes-storage-firebase/scripts/send-vm-notification.applescript'
@@ -66,7 +66,7 @@ function buildSummary({ submissionId, payload }) {
 
 function buildSubject(summary) {
   const name = summary.full_name || 'Cliente sem identificacao';
-  return `Novo cadastro de cliente: ${name}`;
+  return `VM + Arquitetos | Novo cadastro de cliente: ${name}`;
 }
 
 function buildTextBody(summary) {
@@ -82,6 +82,9 @@ function buildTextBody(summary) {
     `Formulario: ${summary.source_form || '-'}`,
     `URL: ${summary.page_url || '-'}`,
     `ID interno: ${summary.submission_id || '-'}`,
+    '',
+    'Esta e uma mensagem automatica da VM + Arquitetos.',
+    'Nao responda este e-mail.',
   ].join('\n');
 }
 

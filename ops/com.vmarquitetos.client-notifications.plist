@@ -23,7 +23,7 @@
       <key>MAIL_ACCOUNT_NAME</key>
       <string>VM</string>
       <key>MAIL_SENDER_ADDRESS</key>
-      <string>asilva@vmarquitetos.com</string>
+      <string>forms@vmarquitetos.com</string>
       <key>NOTIFICATION_SCAN_LIMIT</key>
       <string>25</string>
       <key>NOTIFICATION_LOCK_TIMEOUT_MS</key>
