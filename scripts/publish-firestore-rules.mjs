@@ -30,6 +30,10 @@ service cloud.firestore {
       return value == '' || (value is string && value.size() <= 24 && value.matches('^[0-9+()\\-\\s]+$'));
     }
 
+    function isOptionalBirthday(value) {
+      return value == '' || (value is string && value.matches('^\\d{2}/\\d{2}$'));
+    }
+
     function isIsoDateTime(value) {
       return value is string && value.matches('^\\d{4}-\\d{2}-\\d{2}T[^\\s]+Z$');
     }
@@ -140,8 +144,7 @@ service cloud.firestore {
         && isOptionalPhone(request.resource.data.phone_secondary)
         && isRequiredEmail(request.resource.data.email_primary)
         && isOptionalEmail(request.resource.data.email_secondary)
-        && request.resource.data.birthday_ddmm is string
-        && request.resource.data.birthday_ddmm.matches('^\\d{2}/\\d{2}$')
+        && isOptionalBirthday(request.resource.data.birthday_ddmm)
         && isRequiredString(request.resource.data.address_correspondence, 1200)
         && isRequiredString(request.resource.data.address_project, 1200)
         && isOptionalString(request.resource.data.referral_source_other, 200)
